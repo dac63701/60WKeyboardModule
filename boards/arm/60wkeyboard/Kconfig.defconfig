@@ -1,16 +1,9 @@
 if BOARD_60WKEYBOARD
 
-config ZMK_KEYBOARD_NAME
+config BOARD
     default "60wkeyboard"
 
-if USB_DEVICE_STACK
+config BOARD_60WKEYBOARD
+    def_bool y
 
-config USB_NRFX
-    default y
-
-endif # USB_DEVICE_STACK
-
-config BT_CTLR
-    default BT
-
-endif # BOARD_60WKEYBOARD
+endif
