@@ -3,6 +3,8 @@ if BOARD_60WKEYBOARD
 config BOARD
     default "60wkeyboard"
 
+# This part was the loop. Use 'def_bool y' without a 'depends on'
+# since we are already inside the 'if BOARD_60WKEYBOARD' block.
 config BOARD_60WKEYBOARD
     def_bool y
 
