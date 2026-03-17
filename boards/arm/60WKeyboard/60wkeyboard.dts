@@ -14,6 +14,10 @@
         zmk,underglow = &led_strip;
     };
 
+    keymap0: keymap {
+        compatible = "zmk,keymap";
+    };
+
     kscan0: kscan {
         compatible = "zmk,kscan-gpio-matrix";
         label = "KSCAN";
@@ -43,7 +47,7 @@
             , <&gpio0 10 GPIO_ACTIVE_HIGH> // COL_12 (P0.10)
             , <&gpio1  0 GPIO_ACTIVE_HIGH> // COL_13 (P1.00)
             ;
-    };
+    }; 
 
     // Special pin for your RGB Power (P0.06)
     vcc_rgb: vcc_rgb_en {
