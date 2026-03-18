@@ -1,18 +1,20 @@
-# Copyright (c) 2026 David Colburn
-# SPDX-License-Identifier: MIT
-
 if BOARD_60WKEYBOARD
+
+config ZMK_KEYBOARD_NAME
+    default "60wkeyboard"
 
 if USB_DEVICE_STACK
 
 config USB_NRFX
     default y
 
+config USB_DEVICE_PRODUCT
+    default "60wkeyboard"
+
 endif # USB_DEVICE_STACK
 
-# This tells the Bluetooth controller to use the standard BT stack
 config BT_CTLR
     default y
     depends on BT
 
-endif
+endif # BOARD_60WKEYBOARD

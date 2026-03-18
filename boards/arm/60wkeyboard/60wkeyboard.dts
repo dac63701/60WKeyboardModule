@@ -76,10 +76,10 @@ RC(4,0)   RC(4,1)   RC(4,2)                      RC(4,6)                       R
         #address-cells = <1>;
         #size-cells = <1>;
 
-        sd_partition: partition@0 { reg = <0x00000000 0x00001000>; };
-        code_partition: partition@1000 { reg = <0x00001000 0x000d3000>; };
-        storage_partition: partition@d4000 { reg = <0x000d4000 0x00020000>; };
-        boot_partition: partition@f4000 { reg = <0x000f4000 0x0000c000>; };
+        sd_partition: partition@0      { reg = <0x00000000 0x00026000>; };
+        code_partition: partition@26000 { reg = <0x00026000 0x000ad000>; };
+        storage_partition: partition@d3000 { reg = <0x000d3000 0x00020000>; };
+        boot_partition: partition@f3000 { reg = <0x000f3000 0x0000d000>; };
     };
 };
 
