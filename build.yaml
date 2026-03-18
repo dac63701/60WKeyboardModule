@@ -1,4 +1,4 @@
 ---
 include:
-  - board: 60wkeyboard//zmk
-    artifact-name: 60wkeyboard-zmk
+  - board: nice_nano_v2
+    shield: 60wkeyboard
