@@ -3,10 +3,17 @@ if BOARD_60WKEYBOARD
 config ZMK_KEYBOARD_NAME
     default "60wkeyboard"
 
+# This is the "Magic" fix for the NRFX errors you're seeing
+config HAS_NRFX
+    default y
+
 if USB_DEVICE_STACK
 
 config USB_NRFX
     default y
+
+config USB_DEVICE_PRODUCT
+    default "60wkeyboard"
 
 endif # USB_DEVICE_STACK
 
