@@ -1,11 +1,10 @@
+# Copyright (c) 2026 David Colburn
+# SPDX-License-Identifier: MIT
+
 if BOARD_60WKEYBOARD
 
 config ZMK_KEYBOARD_NAME
     default "60wkeyboard"
-
-# This is the "Magic" fix for the NRFX errors you're seeing
-config HAS_NRFX
-    default y
 
 if USB_DEVICE_STACK
 
@@ -17,7 +16,9 @@ config USB_DEVICE_PRODUCT
 
 endif # USB_DEVICE_STACK
 
+# This tells the Bluetooth controller to use the standard BT stack
 config BT_CTLR
-    default BT
+    default y
+    depends on BT
 
 endif # BOARD_60WKEYBOARD
