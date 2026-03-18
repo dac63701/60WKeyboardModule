@@ -1,8 +1,5 @@
 if BOARD_60WKEYBOARD
 
-config ZMK_KEYBOARD_NAME
-    default "60wkeyboard"
-
 if USB_DEVICE_STACK
 
 config USB_NRFX
@@ -13,4 +10,4 @@ endif # USB_DEVICE_STACK
 config BT_CTLR
     default BT
 
-endif # BOARD_NICE60
+endif
