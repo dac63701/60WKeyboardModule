@@ -1,2 +1,3 @@
+---
 include:
-- board: 60wkeyboard
+  - board: 60wkeyboard

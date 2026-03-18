@@ -1,0 +1,5 @@
+/* Empty pinctrl — no SPI/I2C peripherals active in base build.
+   Add entries here if you re-enable RGB or other peripherals later. */
+
+&pinctrl {
+};

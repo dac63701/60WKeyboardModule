@@ -11,6 +11,12 @@ config USB_NRFX
 config USB_DEVICE_PRODUCT
     default "60wkeyboard"
 
+config USB_DEVICE_VID
+    default 0x1d50
+
+config USB_DEVICE_PID
+    default 0x615e
+
 endif # USB_DEVICE_STACK
 
 config BT_CTLR
