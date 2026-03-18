@@ -8,19 +8,9 @@ if USB_DEVICE_STACK
 config USB_NRFX
     default y
 
-config USB_DEVICE_PRODUCT
-    default "60wkeyboard"
-
-config USB_DEVICE_VID
-    default 0x1d50
-
-config USB_DEVICE_PID
-    default 0x615e
-
 endif # USB_DEVICE_STACK
 
 config BT_CTLR
-    default y
-    depends on BT
+    default BT
 
 endif # BOARD_60WKEYBOARD
