@@ -1,4 +1,7 @@
 board:
   name: 60wkeyboard
+  vendor: dac63701
   socs:
     - name: nrf52840
+      variants:
+        - name: zmk

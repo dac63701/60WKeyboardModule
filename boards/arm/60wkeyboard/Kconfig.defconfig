@@ -1,11 +1,16 @@
 if BOARD_60WKEYBOARD
 
-config BOARD
+config ZMK_KEYBOARD_NAME
     default "60wkeyboard"
 
-# This part was the loop. Use 'def_bool y' without a 'depends on'
-# since we are already inside the 'if BOARD_60WKEYBOARD' block.
-config BOARD_60WKEYBOARD
-    def_bool y
+if USB_DEVICE_STACK
 
-endif
+config USB_NRFX
+    default y
+
+endif # USB_DEVICE_STACK
+
+config BT_CTLR
+    default BT
+
+endif # BOARD_NICE60
