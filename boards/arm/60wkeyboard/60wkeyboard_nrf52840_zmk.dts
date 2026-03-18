@@ -86,7 +86,7 @@ zephyr_udc0: &usbd {
         storage_partition: partition@d3000 { reg = <0x000d3000 0x00020000>; };
         boot_partition: partition@f3000 { reg = <0x000f3000 0x0000d000>; };
     };
-}
+};
 
 &layout_60_ansi {
     transform = <&default_transform>;
