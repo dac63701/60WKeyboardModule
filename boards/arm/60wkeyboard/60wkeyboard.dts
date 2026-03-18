@@ -1,16 +1,7 @@
-/*
- * Copyright (c) 2026 David Colburn
- * SPDX-License-Identifier: MIT
- */
-
 /dts-v1/;
 #include <nordic/nrf52840_qiaa.dtsi>
-
-#include <dt-bindings/led/led.h>
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <layouts/common/60percent/ansi.dtsi>
-
-#include "60wkeyboard-pinctrl.dtsi"
 
 / {
     model = "60wkeyboard";
@@ -22,10 +13,8 @@
         zephyr,flash = &flash0;
         zmk,kscan = &kscan0;
         zmk,physical-layout = &layout_60_ansi;
-        zmk,underglow = &led_strip;
     };
 
-    // The placeholder that links your .keymap file
     keymap0: keymap {
         compatible = "zmk,keymap";
     };
@@ -49,37 +38,29 @@ RC(4,0)   RC(4,1)   RC(4,2)                      RC(4,6)                       R
         diode-direction = "col2row";
 
         row-gpios
-            = <&gpio0 12 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // ROW_0
-            , <&gpio0  8 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // ROW_1
-            , <&gpio0  7 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // ROW_2
-            , <&gpio1  9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // ROW_3
-            , <&gpio0 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // ROW_4
+            = <&gpio0 12 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpio0  8 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpio0  7 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpio1  9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpio0 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
             ;
 
         col-gpios
-            = <&gpio0 24 GPIO_ACTIVE_HIGH> // COL_0
-            , <&gpio0 22 GPIO_ACTIVE_HIGH> // COL_1
-            , <&gpio0 20 GPIO_ACTIVE_HIGH> // COL_2
-            , <&gpio0 17 GPIO_ACTIVE_HIGH> // COL_3
-            , <&gpio0 15 GPIO_ACTIVE_HIGH> // COL_4
-            , <&gpio0 14 GPIO_ACTIVE_HIGH> // COL_5
-            , <&gpio0 25 GPIO_ACTIVE_HIGH> // COL_6
-            , <&gpio0 13 GPIO_ACTIVE_HIGH> // COL_7
-            , <&gpio0 16 GPIO_ACTIVE_HIGH> // COL_8
-            , <&gpio0 19 GPIO_ACTIVE_HIGH> // COL_9
-            , <&gpio0 21 GPIO_ACTIVE_HIGH> // COL_10
-            , <&gpio0 23 GPIO_ACTIVE_HIGH> // COL_11
-            , <&gpio0 10 GPIO_ACTIVE_HIGH> // COL_12
-            , <&gpio1  0 GPIO_ACTIVE_HIGH> // COL_13
+            = <&gpio0 24 GPIO_ACTIVE_HIGH>
+            , <&gpio0 22 GPIO_ACTIVE_HIGH>
+            , <&gpio0 20 GPIO_ACTIVE_HIGH>
+            , <&gpio0 17 GPIO_ACTIVE_HIGH>
+            , <&gpio0 15 GPIO_ACTIVE_HIGH>
+            , <&gpio0 14 GPIO_ACTIVE_HIGH>
+            , <&gpio0 25 GPIO_ACTIVE_HIGH>
+            , <&gpio0 13 GPIO_ACTIVE_HIGH>
+            , <&gpio0 16 GPIO_ACTIVE_HIGH>
+            , <&gpio0 19 GPIO_ACTIVE_HIGH>
+            , <&gpio0 21 GPIO_ACTIVE_HIGH>
+            , <&gpio0 23 GPIO_ACTIVE_HIGH>
+            , <&gpio0 10 GPIO_ACTIVE_HIGH>
+            , <&gpio1  0 GPIO_ACTIVE_HIGH>
             ;
-    };
-
-    // Your RGB Power Pin (P0.06)
-    vcc_rgb: vcc_rgb_en {
-        compatible = "regulator-fixed";
-        regulator-name = "vcc_rgb_en";
-        enable-gpios = <&gpio0 6 GPIO_ACTIVE_HIGH>;
-        regulator-always-on;
     };
 };
 
@@ -87,25 +68,6 @@ RC(4,0)   RC(4,1)   RC(4,2)                      RC(4,6)                       R
 &gpiote { status = "okay"; };
 &gpio0 { status = "okay"; };
 &gpio1 { status = "okay"; };
-
-&spi3 {
-    compatible = "nordic,nrf-spim";
-    pinctrl-0 = <&spi3_default>;
-    pinctrl-1 = <&spi3_sleep>;
-    pinctrl-names = "default", "sleep";
-    status = "okay";
-
-    led_strip: ws2812@0 {
-        compatible = "worldsemi,ws2812-spi";
-        reg = <0>;
-        spi-max-frequency = <4000000>;
-        chain-length = <61>;
-        spi-one-frame = <0x70>;
-        spi-zero-frame = <0x40>;
-        color-mapping = <LED_COLOR_ID_GREEN LED_COLOR_ID_RED LED_COLOR_ID_BLUE>;
-    };
-};
-
 &usbd { status = "okay"; };
 
 &flash0 {
