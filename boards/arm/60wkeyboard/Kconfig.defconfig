@@ -11,9 +11,6 @@ if USB_DEVICE_STACK
 config USB_NRFX
     default y
 
-config USB_DEVICE_PRODUCT
-    default "60wkeyboard"
-
 endif # USB_DEVICE_STACK
 
 # This tells the Bluetooth controller to use the standard BT stack
