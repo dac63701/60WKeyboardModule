@@ -2,6 +2,6 @@ file_format: "1"
 id: 60wkeyboard
 name: 60wkeyboard
 type: shield
-requires: [nice_nano]
 features:
   - keys
+requires: [nice_nano]
