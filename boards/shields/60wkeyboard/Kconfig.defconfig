@@ -1,0 +1,6 @@
+if SHIELD_60WKEYBOARD
+
+config ZMK_KEYBOARD_NAME
+    default "60wkeyboard"
+
+endif
